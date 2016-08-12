@@ -113,7 +113,7 @@ Third party libraries like LUFA, PJRC and V-USB have their own license respectiv
 
 Build Firmware and Program Controller
 -------------------------------------
-See [doc/build.md](tmk_core/doc/build.md), or the readme in the particular keyboards/* folder.
+See [build environment setup](/readme.md#build-environment-setup), or the readme in the particular keyboards/* folder.
 
 
 
@@ -127,7 +127,7 @@ Magic Commands
 --------------
 To see help press `Magic` + `H`.
 
-`Magic` key combination is `LShift` + `RShift` in many project, but `Power` key on ADB converter. 
+`Magic` key combination is `LShift` + `RShift` in many project, but `Power` key on ADB converter.
 `Magic` keybind can be vary on each project, check `config.h` in project directory.
 
 Following commands can be also executed with `Magic` + key. In console mode `Magic` keybind is not needed.
@@ -198,11 +198,11 @@ To avoid configuring accidentally additive salt key `KC_SPACE` also needs to be 
 
 Mechanical Locking support
 --------------------------
-This feature makes it possible for you to use mechanical locking switch for `CapsLock`, `NumLock` 
+This feature makes it possible for you to use mechanical locking switch for `CapsLock`, `NumLock`
 or `ScrollLock`. To enable this feature define these macros in `config.h` and use `KC_LCAP`, `KC_LN
 UM` or `KC_LSCR` in keymap for locking key instead of normal `KC_CAPS`, `KC_NLCK` or `KC_SLCK`. Res
 ync option tries to keep switch state consistent with keyboard LED state.
- 
+
     #define LOCKING_SUPPORT_ENABLE
     #define LOCKING_RESYNC_ENABLE
 
