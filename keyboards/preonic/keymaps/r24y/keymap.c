@@ -154,8 +154,13 @@ float music_scale[][2]     = SONG(MUSIC_SCALE_SOUND);
 // doubt as to the state of the keyboard. I'm not using Num Lock at the moment
 // so there's no issue.
 float tone_caps_on[][2] = SONG(NUM_LOCK_ON_SOUND);
-
 float tone_caps_off[][2] = SONG(NUM_LOCK_OFF_SOUND);
+
+// I'm using the designated "caps lock" sounds to warn myself that I've pressed
+// the "GUI" key (Command, Super, or Windows, depending on platform).
+float tone_super_on[][2] = SONG(CAPS_LOCK_ON_SOUND);
+float tone_super_off[][2] = SONG(CAPS_LOCK_OFF_SOUND);
+
 #endif
 
 void persistant_default_layer_set(uint16_t default_layer) {
@@ -165,14 +170,12 @@ void persistant_default_layer_set(uint16_t default_layer) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-        case QWERTY:
-          if (record->event.pressed) {
-            #ifdef AUDIO_ENABLE
-              PLAY_NOTE_ARRAY(tone_qwerty, false, 0);
-            #endif
-            persistant_default_layer_set(1UL<<_QWERTY);
-          }
-          return false;
+        case KC_LGUI:
+          #ifdef AUDIO_ENABLE
+            if (record->event.pressed) {
+              PLAY_NOTE_ARRAY(tone_super_on, false, 0);
+            }
+          #endif
           break;
         case LOWER:
           if (record->event.pressed) {
